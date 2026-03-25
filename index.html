@@ -6,97 +6,41 @@
 <title>Nexus360 - Business Assessment</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-    margin: 0;
-    padding: 20px;
-}
-.container {
-    max-width: 900px;
-    margin: auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-}
-h2 {
-    background: #1f3c88;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-}
-label {
-    display: block;
-    margin-top: 15px;
-    font-weight: bold;
-}
-select, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-.checkbox-group label {
-    font-weight: normal;
-}
-button {
-    margin-top: 20px;
-    padding: 12px;
-    width: 100%;
-    background: #1f3c88;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-button:disabled {
-    background: #999;
-}
-#message {
-    margin-top: 15px;
-    font-weight: bold;
-}
-.success { color: green; }
+body { font-family: Arial; background:#f4f6f8; padding:20px; }
+.container { max-width:900px; margin:auto; background:#fff; padding:25px; border-radius:10px; }
+h2 { background:#1f3c88; color:#fff; padding:10px; border-radius:5px; }
+label { display:block; margin-top:15px; font-weight:bold; }
+select, textarea { width:100%; padding:8px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
+.checkbox-group label { font-weight:normal; }
+button { margin-top:20px; padding:12px; width:100%; background:#1f3c88; color:#fff; border:none; border-radius:5px; font-size:16px; }
+#message { margin-top:15px; font-weight:bold; color:green; }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 <h1>Nexus360 - Business Assessment</h1>
 
 <form id="nexusForm">
 
+<!-- SECTION 1 -->
 <h2>SECTION 1: Business Basics</h2>
-
 <label>Industry</label>
 <select name="industry" required>
 <option value="">-- Select --</option>
-<option>IT / SaaS</option>
-<option>Hospitality</option>
-<option>Construction</option>
-<option>Retail</option>
-<option>Other</option>
+<option>IT / SaaS</option><option>Hospitality</option><option>Construction</option><option>Retail</option><option>Other</option>
 </select>
 
 <label>Team Size</label>
 <select name="team_size" required>
 <option value="">-- Select --</option>
-<option>1–10</option>
-<option>11–25</option>
-<option>26–50</option>
-<option>50+</option>
+<option>1–10</option><option>11–25</option><option>26–50</option><option>50+</option>
 </select>
 
 <label>Monthly Revenue</label>
 <select name="revenue" required>
 <option value="">-- Select --</option>
-<option>&lt; 5L</option>
-<option>5–20L</option>
-<option>20–50L</option>
-<option>50L+</option>
+<option>&lt;5L</option><option>5–20L</option><option>20–50L</option><option>50L+</option>
 </select>
 
 <label>Departments</label>
@@ -116,38 +60,155 @@ button:disabled {
 <option>9</option><option>10</option>
 </select>
 
+<!-- SECTION 2 -->
 <h2>SECTION 2: Reality Mapping</h2>
-
 <label>Daily Workflow</label>
 <textarea name="workflow" required></textarea>
 
 <label>Workflow Clarity</label>
 <select name="workflow_clarity" required>
 <option value="">-- Select --</option>
-<option>Yes</option>
-<option>Partially</option>
-<option>No</option>
+<option>Yes</option><option>Partially</option><option>No</option>
 </select>
 
 <label>Execution Gap</label>
 <select name="execution_gap" required>
 <option value="">-- Select --</option>
-<option>Low</option>
-<option>Medium</option>
-<option>High</option>
+<option>Low</option><option>Medium</option><option>High</option>
 </select>
 
 <label>Task Delay</label>
 <select name="task_delay" required>
 <option value="">-- Select --</option>
-<option>None</option>
-<option>&lt;10%</option>
-<option>10–30%</option>
-<option>30%+</option>
+<option>None</option><option>&lt;10%</option><option>10–30%</option><option>30%+</option>
 </select>
 
 <label>Bottlenecks</label>
 <textarea name="bottlenecks" required></textarea>
+
+<!-- SECTION 3 -->
+<h2>SECTION 3: Process & Systems</h2>
+<label>SOP Availability</label>
+<select name="sop" required>
+<option value="">-- Select --</option>
+<option>Yes</option><option>Partial</option><option>No</option>
+</select>
+
+<label>Process Clarity</label>
+<select name="process_clarity" required>
+<option value="">-- Select --</option>
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+<option>9</option><option>10</option>
+</select>
+
+<label>Rework Frequency</label>
+<select name="rework" required>
+<option value="">-- Select --</option>
+<option>Rare</option><option>Sometimes</option><option>Frequent</option>
+</select>
+
+<label>Task Dependency</label>
+<select name="dependency" required>
+<option value="">-- Select --</option>
+<option>Low</option><option>Medium</option><option>High</option>
+</select>
+
+<!-- SECTION 4 -->
+<h2>SECTION 4: People & Structure</h2>
+<label>Roles Defined</label>
+<select name="roles" required>
+<option value="">-- Select --</option>
+<option>Yes</option><option>Partial</option><option>No</option>
+</select>
+
+<label>Accountability</label>
+<select name="accountability" required>
+<option value="">-- Select --</option>
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+<option>9</option><option>10</option>
+</select>
+
+<label>Role Overlap</label>
+<select name="overlap" required>
+<option value="">-- Select --</option>
+<option>Yes</option><option>No</option>
+</select>
+
+<label>Key Dependency</label>
+<select name="key_dependency" required>
+<option value="">-- Select --</option>
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+<option>9</option><option>10</option>
+</select>
+
+<!-- SECTION 5 -->
+<h2>SECTION 5: Performance</h2>
+<label>KPI Tracking</label>
+<select name="kpi" required>
+<option value="">-- Select --</option>
+<option>Yes</option><option>No</option>
+</select>
+
+<label>Productivity</label>
+<select name="productivity" required>
+<option value="">-- Select --</option>
+<option>High</option><option>Medium</option><option>Low</option>
+</select>
+
+<label>Time Efficiency</label>
+<select name="time_efficiency" required>
+<option value="">-- Select --</option>
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+<option>9</option><option>10</option>
+</select>
+
+<!-- SECTION 6 -->
+<h2>SECTION 6: Risk</h2>
+<label>Owner Dependency</label>
+<select name="owner_dependency" required>
+<option value="">-- Select --</option>
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+<option>9</option><option>10</option>
+</select>
+
+<label>Single Point Failure</label>
+<select name="failure" required>
+<option value="">-- Select --</option>
+<option>Yes</option><option>No</option>
+</select>
+
+<label>Breakdown Frequency</label>
+<select name="breakdown" required>
+<option value="">-- Select --</option>
+<option>Rare</option><option>Occasional</option><option>Frequent</option>
+</select>
+
+<!-- SECTION 7 -->
+<h2>SECTION 7: Opportunities</h2>
+<label>Untapped Capacity</label>
+<select name="capacity" required>
+<option value="">-- Select --</option>
+<option>Yes</option><option>No</option>
+</select>
+
+<label>Growth Goal</label>
+<textarea name="growth" required></textarea>
+
+<!-- SECTION 8 -->
+<h2>SECTION 8: Insights</h2>
+<label>Frustration</label>
+<textarea name="frustration" required></textarea>
+
+<label>Time Usage</label>
+<textarea name="time_usage" required></textarea>
+
+<label>What’s Broken</label>
+<textarea name="broken" required></textarea>
 
 <button type="submit" id="submitBtn">Submit Assessment</button>
 <div id="message"></div>
@@ -177,16 +238,15 @@ form.addEventListener("submit", function(e) {
         }
     });
 
-    fetch("PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE", {
+    fetch("https://script.google.com/macros/s/AKfycbwm6sfNPrHltDRhAAJ6cbKG27Z65-qFEUpYkRfFdG_tmq8Y9vg797lr9GIFxi2KmB0i9g/exec", {
         method: "POST",
         body: JSON.stringify(data),
         mode: "no-cors"
     });
 
     message.innerText = "Submitted successfully!";
-    message.className = "success";
-
     form.reset();
+
     btn.disabled = false;
     btn.innerText = "Submit Assessment";
 });
