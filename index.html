@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus360 - Business Assessment</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+}
+h2 {
+    background: #1f3c88;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.checkbox-group label {
+    font-weight: normal;
+}
+button {
+    margin-top: 20px;
+    padding: 12px;
+    width: 100%;
+    background: #1f3c88;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:disabled {
+    background: #999;
+}
+#message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+.success { color: green; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Nexus360 - Business Assessment</h1>
+
+<form id="nexusForm">
+
+<h2>SECTION 1: Business Basics</h2>
+
+<label>Industry</label>
+<select name="industry" required>
+<option value="">-- Select --</option>
+<option>IT / SaaS</option>
+<option>Hospitality</option>
+<option>Construction</option>
+<option>Retail</option>
+<option>Other</option>
+</select>
+
+<label>Team Size</label>
+<select name="team_size" required>
+<option value="">-- Select --</option>
+<option>1–10</option>
+<option>11–25</option>
+<option>26–50</option>
+<option>50+</option>
+</select>
+
+<label>Monthly Revenue</label>
+<select name="revenue" required>
+<option value="">-- Select --</option>
+<option>&lt; 5L</option>
+<option>5–20L</option>
+<option>20–50L</option>
+<option>50L+</option>
+</select>
+
+<label>Departments</label>
+<div class="checkbox-group">
+<label><input type="checkbox" name="departments" value="Sales"> Sales</label>
+<label><input type="checkbox" name="departments" value="Operations"> Operations</label>
+<label><input type="checkbox" name="departments" value="Finance"> Finance</label>
+<label><input type="checkbox" name="departments" value="HR"> HR</label>
+<label><input type="checkbox" name="departments" value="Marketing"> Marketing</label>
+</div>
+
+<label>Owner Involvement</label>
+<select name="owner_level" required>
+<option value="">-- Select --</option>
+<option>1</option><option>2</option><option>3</option><option>4</option>
+<option>5</option><option>6</option><option>7</option><option>8</option>
+<option>9</option><option>10</option>
+</select>
+
+<h2>SECTION 2: Reality Mapping</h2>
+
+<label>Daily Workflow</label>
+<textarea name="workflow" required></textarea>
+
+<label>Workflow Clarity</label>
+<select name="workflow_clarity" required>
+<option value="">-- Select --</option>
+<option>Yes</option>
+<option>Partially</option>
+<option>No</option>
+</select>
+
+<label>Execution Gap</label>
+<select name="execution_gap" required>
+<option value="">-- Select --</option>
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+</select>
+
+<label>Task Delay</label>
+<select name="task_delay" required>
+<option value="">-- Select --</option>
+<option>None</option>
+<option>&lt;10%</option>
+<option>10–30%</option>
+<option>30%+</option>
+</select>
+
+<label>Bottlenecks</label>
+<textarea name="bottlenecks" required></textarea>
+
+<button type="submit" id="submitBtn">Submit Assessment</button>
+<div id="message"></div>
+
+</form>
+</div>
+
+<script>
+const form = document.getElementById("nexusForm");
+const btn = document.getElementById("submitBtn");
+const message = document.getElementById("message");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.innerText = "Submitting...";
+
+    const formData = new FormData(form);
+    const data = {};
+
+    formData.forEach((value, key) => {
+        if (data[key]) {
+            data[key] = [].concat(data[key], value);
+        } else {
+            data[key] = value;
+        }
+    });
+
+    fetch("PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE", {
+        method: "POST",
+        body: JSON.stringify(data),
+        mode: "no-cors"
+    });
+
+    message.innerText = "Submitted successfully!";
+    message.className = "success";
+
+    form.reset();
+    btn.disabled = false;
+    btn.innerText = "Submit Assessment";
+});
+</script>
+
+</body>
+</html>
